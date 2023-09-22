@@ -1,0 +1,46 @@
+@use "styles/_macros.scss" as *;
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  //   shadow
+  background: var(--white);
+  box-shadow: 0px 3px 16px #0000000a;
+  opacity: 0.8;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  height: $header-height;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: $header-width;
+}
+
+.headerLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  //   texts are only one line
+  white-space: nowrap;
+
+  //   links
+  a {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+    // no line
+    text-decoration: none;
+    // no color change
+    color: var(--text-blue);
+    font-family: $font-secondary;
+    font-weight: $fw-medium;
+  }
+}
