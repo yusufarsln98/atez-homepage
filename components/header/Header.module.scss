@@ -20,12 +20,11 @@
   justify-content: space-between;
   align-items: center;
   width: $header-width;
-
+  padding-left: 20px;
+  padding-right: 20px;
   // break point
   @media (max-width: $breakpoint-web) {
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 }
 
@@ -48,6 +47,7 @@
     // no color change
     color: var(--text-blue);
     font-family: $font-secondary;
-    font-weight: $fw-medium;
+    font-weight: $fw-bold;
+    letter-spacing: 0px;
   }
 }
