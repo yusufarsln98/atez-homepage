@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./Home.module.scss";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Home = () => {
   return (
@@ -31,14 +32,16 @@ const Home = () => {
           </p>
           <div className={styles.jobCardButtonContainer}>
             <>BAŞVURMAK İÇİN TIKLA</>
-            <button>
-              <Image
-                src="/icons/RightWhite.svg"
-                alt="arrow-right"
-                width={20}
-                height={20}
-              />
-            </button>
+            <AnchorLink href="#acik-pozisyonlar">
+              <button>
+                <Image
+                  src="/icons/RightWhite.svg"
+                  alt="arrow-right"
+                  width={20}
+                  height={20}
+                />
+              </button>
+            </AnchorLink>
           </div>
         </div>
         <div className={styles.homeImage}>

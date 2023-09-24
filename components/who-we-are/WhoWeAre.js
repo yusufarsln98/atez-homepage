@@ -65,9 +65,7 @@ const WhoWeAre = () => {
       <div className={styles.whoWeAreApplicationsContainer}>
         <div className={styles.whoWeAreApplications}>
           <p>BAŞVURULAR</p>
-          {/* button */}
           <button>
-            {/* image */}
             <Image
               src={"/icons/Right.svg"}
               alt="right"
