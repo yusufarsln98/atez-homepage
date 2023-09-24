@@ -52,7 +52,12 @@
     // no color change
     color: var(--text-blue);
     font-family: $font-secondary;
-    font-weight: $fw-bold;
+    font-weight: $fw-medium;
     letter-spacing: 0px;
+
+    // for mobile, hide links
+    @media (max-width: $breakpoint-mobile) {
+      display: none;
+    }
   }
 }

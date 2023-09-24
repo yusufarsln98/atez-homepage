@@ -1,9 +1,9 @@
 import Image from "next/image";
 import styles from "./Home.module.scss";
 
-export const Home = () => {
+const Home = () => {
   return (
-    <div className={styles.home}>
+    <div id="home" className={styles.home}>
       <div className={styles.homeContainer}>
         <div className={styles.homeText}>
           <h1 className={styles.title}>
@@ -54,3 +54,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

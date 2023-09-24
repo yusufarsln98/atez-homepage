@@ -1,0 +1,179 @@
+@use "styles/_macros.scss" as *;
+
+.whoWeAre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: $context-width;
+  height: 100%;
+
+  // break point
+  @media (max-width: calc($breakpoint-web + 40px)) {
+    width: 100%;
+  }
+
+  .whoWeAreTextContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: $header-height + 40px;
+    margin-bottom: 60px;
+
+    // break point
+    @media (max-width: calc($breakpoint-web + 40px)) {
+      gap: 20px;
+      flex-direction: column;
+      padding: 0 20px;
+      margin-top: $header-height;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      margin-top: 40px;
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      // height is 100% of parent
+      justify-content: flex-end;
+      margin-right: 60px;
+      margin-bottom: 12px; // due to the underline
+
+      h1 {
+        // one line
+        white-space: nowrap;
+        // italik
+        font-style: italic;
+        // color
+        color: var(--text-purple);
+        // font size
+        font-size: $fs-large;
+        span {
+          // under line
+          text-decoration: underline;
+          // underline pixel
+          text-decoration-thickness: 4px;
+          text-underline-offset: 20px;
+        }
+
+        // break point
+        @media (max-width: $breakpoint-mobile) {
+          font-size: $fs-big-medium;
+        }
+      }
+    }
+
+    .description {
+      // color
+      color: var(--text-blue);
+      font-size: $fs-small;
+      font-family: $font-secondary;
+    }
+  }
+
+  .whoWeAreImageContainer {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    width: 100%;
+
+    // break point
+    @media (max-width: calc($breakpoint-web + 40px)) {
+      padding: 0 20px;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    @media (max-width: calc($breakpoint-mobile)) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+
+    .imageCard {
+      background: var(--white);
+      // import panel
+      @include panel;
+      // border radius
+      border-radius: $border-radius-small;
+
+      //   on hover increase the shadow
+      &:hover {
+        transition: 0.3s;
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+        -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      //   on hover increase the shadow
+      &:not(:hover) {
+        transition: 0.3s;
+        box-shadow: 0px 3px 16px #0000000a;
+      }
+    }
+  }
+
+  .whoWeAreApplicationsContainer {
+    width: 100%;
+    margin-bottom: 60px;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    // break point
+    @media (max-width: calc($breakpoint-web + 40px)) {
+      padding: 0 20px;
+      margin-top: 40px;
+    }
+
+    .whoWeAreApplications {
+      display: flex;
+      flex-direction: row;
+      // gap between elements
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+      p {
+        // color
+        color: var(--text-blue);
+        font-size: $fs-small;
+        font-family: $font-secondary;
+        font-weight: $fw-regular;
+      }
+
+      button {
+        // transparent with border
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: 2px solid var(--text-blue);
+        // border radius
+        border-radius: $border-radius-medium;
+        width: 60px;
+        height: 36px;
+        // cursor
+        cursor: pointer;
+
+        // on hover
+        &:hover {
+          // with some delay
+          transition: 0.3s;
+          background: var(--text-blue);
+          img {
+            filter: brightness(0) invert(1);
+          }
+        }
+
+        &:not(:hover) {
+          transition: 0.3s;
+          background: transparent;
+        }
+      }
+    }
+  }
+}
