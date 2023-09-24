@@ -17,6 +17,11 @@
   top: 0;
   // z-index
   z-index: 100;
+
+  // break point for mobile
+  @media (max-width: $breakpoint-mobile) {
+    height: 60px;
+  }
 }
 
 .headerContainer {
@@ -30,6 +35,12 @@
   // break point
   @media (max-width: $breakpoint-web) {
     width: 100%;
+  }
+
+  img {
+    @media (max-width: $breakpoint-mobile) {
+      width: 70%;
+    }
   }
 }
 
