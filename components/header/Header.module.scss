@@ -12,6 +12,11 @@
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
   height: $header-height;
+  //  position fixed
+  position: fixed;
+  top: 0;
+  // z-index
+  z-index: 100;
 }
 
 .headerContainer {
@@ -19,7 +24,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: $header-width;
+  width: $context-width;
   padding-left: 20px;
   padding-right: 20px;
   // break point
