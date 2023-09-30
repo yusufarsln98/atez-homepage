@@ -25,7 +25,7 @@ const Home = () => {
               global ölçekli çözümler üretme hedefi ile çalışmalarını
               sürdürmektedir.
             </p>
-            <AnchorLink href="#biz-kimiz">
+            <AnchorLink href="#biz-kimiz" style={{ width: "fit-content" }}>
               <button className={styles.whoWeAreButton}>KEŞFET</button>
             </AnchorLink>
           </div>

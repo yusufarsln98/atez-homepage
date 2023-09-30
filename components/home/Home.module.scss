@@ -70,6 +70,7 @@
         font-size: $fs-medium;
         font-weight: $fw-light;
         margin-top: 60px;
+        margin-bottom: 60px;
         width: 500px;
 
         // break point
@@ -77,16 +78,15 @@
           width: 100%;
           font-size: $fs-medium;
           margin-top: 40px;
+          margin-bottom: 40px;
         }
       }
 
       .whoWeAreButton {
-        margin-top: 60px;
         width: 140px;
         height: 55px;
         border-radius: $border-radius-large;
         background: transparent;
-        background: red;
 
         color: var(--white);
         // edges
@@ -101,7 +101,6 @@
           width: 100px;
           height: 40px;
           font-size: $fs-small;
-          margin-top: 40px;
         }
 
         // hover color effect with time

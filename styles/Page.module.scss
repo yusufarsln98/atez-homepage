@@ -6,6 +6,8 @@
   align-items: center;
   width: 100%;
   background: var(--background-color);
+  // overflow on x is hidden
+  overflow-x: hidden;
 }
 
 .openPositions {
