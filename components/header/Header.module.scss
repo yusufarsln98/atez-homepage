@@ -21,6 +21,7 @@
   // break point for mobile
   @media (max-width: $breakpoint-mobile) {
     height: 60px;
+    width: 100vw;
   }
 }
 
@@ -34,7 +35,7 @@
   padding-right: 20px;
   // break point
   @media (max-width: $breakpoint-web) {
-    width: 100%;
+    width: 100vw;
   }
 
   img {

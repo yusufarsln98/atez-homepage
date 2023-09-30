@@ -8,51 +8,46 @@ const Home = () => {
   return (
     <div id="home" className={styles.home}>
       <div className={styles.homeContainer}>
-        <div className={styles.homeText}>
-          <h1 className={styles.title}>
-            Yeni Nesil Uluslararası <br /> Ticaret ve Tedarik Zinciri
-            Teknolojileri
-          </h1>
-          <p className={styles.description}>
-            <span
-              style={{
-                fontWeight: "bold",
-              }}
-            >
-              ATEZ
-            </span>{" "}
-            global ölçekli çözümler üretme hedefi ile çalışmalarını
-            sürdürmektedir.
-          </p>
-          <AnchorLink href="#biz-kimiz">
-            <button>KEŞFET</button>
-          </AnchorLink>
-        </div>
-        <AnchorLink href="#acik-pozisyonlar">
-          <div className={styles.jobCard}>
-            <h1>{selectedPosition.position}</h1>
-            <p>{selectedPosition.title}</p>
-            <div className={styles.jobCardButtonContainer}>
-              <>BAŞVURMAK İÇİN TIKLA</>
-              <button>
-                <Image
-                  src="/icons/RightWhite.svg"
-                  alt="arrow-right"
-                  width={20}
-                  height={20}
-                />
-              </button>
-            </div>
+        <div className={styles.homeContext}>
+          <div className={styles.homeText}>
+            <h1 className={styles.title}>
+              Yeni Nesil Uluslararası <br /> Ticaret ve Tedarik Zinciri
+              Teknolojileri
+            </h1>
+            <p className={styles.description}>
+              <span
+                style={{
+                  fontWeight: "bold",
+                }}
+              >
+                ATEZ
+              </span>{" "}
+              global ölçekli çözümler üretme hedefi ile çalışmalarını
+              sürdürmektedir.
+            </p>
+            <AnchorLink href="#biz-kimiz">
+              <button className={styles.whoWeAreButton}>KEŞFET</button>
+            </AnchorLink>
           </div>
-        </AnchorLink>
-        <div className={styles.homeImage}>
-          <Image
-            src="/dummies/Home.png"
-            alt="hero"
-            width={1107 * 0.9}
-            height={960 * 0.9}
-            style={{ objectFit: "contain", zIndex: -1, marginTop: 100 }}
-          />
+          <AnchorLink href="#acik-pozisyonlar">
+            <div className={styles.jobCardContainer}>
+              <div className={styles.jobCard}>
+                <h1>{selectedPosition.position}</h1>
+                <p>{selectedPosition.title}</p>
+                <div className={styles.jobCardButtonContainer}>
+                  <>BAŞVURMAK İÇİN TIKLA</>
+                  <button>
+                    <Image
+                      src="/icons/RightWhite.svg"
+                      alt="arrow-right"
+                      width={20}
+                      height={20}
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </AnchorLink>
         </div>
       </div>
     </div>

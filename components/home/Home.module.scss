@@ -6,10 +6,12 @@
   align-items: center;
   width: 100%;
   padding: 20px;
-  // 40 = 20px padding * 2
-  height: calc($home-height + 40px);
-  // set margin to header height
   margin-top: $header-height;
+  @media (max-width: $breakpoint-mobile) {
+    margin-top: 60px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 .homeContainer {
@@ -18,198 +20,226 @@
   align-items: center;
   width: 100%;
   height: 100%;
-  background: var(--home-gradient);
   border-radius: $border-radius-large;
-  // hide vertical overflow
-  overflow-y: hidden;
+  background-image: url("/dummies/Home.png"), var(--home-gradient);
+  background-repeat: no-repeat;
+  background-position: bottom;
 
-  .homeText {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    margin-top: 100px;
-    // inherit width from parent
-    left: calc((100% - $context-width) / 2 + 20px);
-
-    // break point
-    @media (max-width: calc($breakpoint-web + 3 * 20px)) {
-      // 3 * 20px is for padding
-      left: 40px;
-    }
-
-    .title {
-      color: var(--white);
-      font-size: $fs-big;
-      font-weight: $fw-medium;
-      width: 680px;
-
-      // break point
-      @media (max-width: $breakpoint-mobile) {
-        width: 400px;
-        font-size: $fs-big-medium;
-      }
-      // increase height of text
-      -webkit-transform: scaleY(1.1);
-      transform: scaleY(1.1);
-    }
-
-    .description {
-      color: var(--white);
-      font-family: $font-secondary;
-      font-size: $fs-medium;
-      font-weight: $fw-light;
-      margin-top: 60px;
-      width: 500px;
-
-      // break point
-      @media (max-width: $breakpoint-mobile) {
-        width: 300px;
-        font-size: $fs-small;
-      }
-    }
-
-    button {
-      margin-top: 60px;
-      width: 140px;
-      height: 55px;
-      border-radius: $border-radius-large;
-      background: transparent;
-      color: var(--white);
-      // edges
-      border: 2px solid var(--white);
-      //
-      font-family: $font-secondary;
-      font-size: $fs-medium;
-      font-weight: $fw-regular;
-      cursor: pointer;
-
-      // break point
-      @media (max-width: $breakpoint-mobile) {
-        width: 100px;
-        height: 40px;
-        font-size: $fs-small;
-      }
-
-      // hover color effect with time
-      &:hover {
-        transition: 0.3s;
-        background: var(--white);
-        color: var(--text-black);
-      }
-
-      // unhover color effect with time
-      &:not(:hover) {
-        transition: 0.3s;
-        background: transparent;
-        color: var(--white);
-      }
-    }
+  // break point web
+  @media (max-width: calc($breakpoint-web + 40px)) {
+    background-position: bottom;
+    background-size: 100%;
   }
-
-  .jobCard {
+  .homeContext {
+    width: $context-width;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    margin-top: 480px;
-    // inherit width from parent
-    right: calc((100% - $context-width) / 2 - 20px);
-    width: $card-width;
-    background: var(--card-gradient);
-    border-radius: $border-radius-medium;
-    // box shadow
-    box-shadow: $card-shadow;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    // hover effect expands
-    &:hover {
-      transition: 0.3s;
-      transform: scale(1.05);
+    padding-top: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
+    // break point web
+    @media (max-width: calc($breakpoint-web)) {
+      width: 100%;
+      padding-top: 60px;
     }
 
-    // after unhover, return to normal
-    &:not(:hover) {
-      transition: 0.3s;
-      transform: scale(1);
-    }
-
-    // text color is white
-    color: var(--white);
-
-    h1 {
-      font-size: $fs-big-medium;
-      font-weight: $fw-medium;
-      margin-bottom: 8px;
-    }
-
-    .jobCardButtonContainer {
-      // align self to the right
+    .homeText {
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      align-self: flex-end;
-      margin-top: 20px;
+      flex-direction: column;
 
-      button {
-        // transparent background with white border
-        background: transparent;
-        border: 2px solid var(--white);
-        border-radius: $border-radius-medium;
+      .title {
         color: var(--white);
-        width: 58px;
-        height: 36px;
-        margin-left: 20px;
-        // center
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        // cursor
-        cursor: pointer;
+        font-size: $fs-big;
+        font-weight: $fw-medium;
+        width: 680px;
 
-        // hover effect
+        // increase height of text
+        -webkit-transform: scaleY(1.1);
+        transform: scaleY(1.1);
+
+        // break point
+        @media (max-width: $breakpoint-web) {
+          width: 100%;
+          font-size: $fs-big-medium;
+        }
+      }
+
+      .description {
+        color: var(--white);
+        font-family: $font-secondary;
+        font-size: $fs-medium;
+        font-weight: $fw-light;
+        margin-top: 60px;
+        width: 500px;
+
+        // break point
+        @media (max-width: $breakpoint-web) {
+          width: 100%;
+          font-size: $fs-medium;
+          margin-top: 40px;
+        }
+      }
+
+      .whoWeAreButton {
+        margin-top: 60px;
+        width: 140px;
+        height: 55px;
+        border-radius: $border-radius-large;
+        background: transparent;
+        background: red;
+
+        color: var(--white);
+        // edges
+        border: 2px solid var(--white);
+        //
+        font-family: $font-secondary;
+        font-size: $fs-medium;
+        font-weight: $fw-regular;
+        cursor: pointer;
+        // break point
+        @media (max-width: $breakpoint-mobile) {
+          width: 100px;
+          height: 40px;
+          font-size: $fs-small;
+          margin-top: 40px;
+        }
+
+        // hover color effect with time
         &:hover {
           transition: 0.3s;
           background: var(--white);
-          // invert image
-          img {
-            filter: invert(1);
-          }
+          color: var(--text-black);
         }
 
-        // unhover effect
+        // unhover color effect with time
         &:not(:hover) {
           transition: 0.3s;
           background: transparent;
-          // invert image
-          img {
-            filter: invert(0);
+          color: var(--white);
+        }
+      }
+    }
+
+    .jobCardContainer {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      margin-bottom: 100px;
+
+      // break point
+      @media (max-width: $breakpoint-web) {
+        margin-bottom: 60px;
+      }
+
+      .jobCard {
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+        margin-right: 0;
+        // inherit width from parent
+        width: $card-width;
+        // align self right
+        background: var(--card-gradient);
+        border-radius: $border-radius-medium;
+        // box shadow
+        box-shadow: $card-shadow;
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top: 60px;
+
+        @media (max-width: $breakpoint-mobile) {
+          margin-top: 40px;
+        }
+
+        // hover effect expands
+        &:hover {
+          transition: 0.3s;
+          transform: scale(1.05);
+        }
+
+        // after unhover, return to normal
+        &:not(:hover) {
+          transition: 0.3s;
+          transform: scale(1);
+        }
+
+        // text color is white
+        color: var(--white);
+
+        h1 {
+          font-size: $fs-big-medium;
+          font-weight: $fw-medium;
+          margin-bottom: 8px;
+        }
+
+        .jobCardButtonContainer {
+          // align self to the right
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          align-self: flex-end;
+          margin-top: 20px;
+
+          button {
+            // transparent background with white border
+            background: transparent;
+            border: 2px solid var(--white);
+            border-radius: $border-radius-medium;
+            color: var(--white);
+            width: 58px;
+            height: 36px;
+            margin-left: 20px;
+            // center
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // cursor
+            cursor: pointer;
+
+            // hover effect
+            &:hover {
+              transition: 0.3s;
+              background: var(--white);
+              // invert image
+              img {
+                filter: invert(1);
+              }
+            }
+
+            // unhover effect
+            &:not(:hover) {
+              transition: 0.3s;
+              background: transparent;
+              // invert image
+              img {
+                filter: invert(0);
+              }
+            }
           }
         }
-      }
-    }
-    // break point
-    @media (max-width: $breakpoint-mobile) {
-      width: 400px;
-      padding-left: 20px;
-      padding-right: 20px;
-      padding-top: 10px;
-      padding-bottom: 10px;
+        // break point
+        @media (max-width: $breakpoint-mobile) {
+          width: 400px;
+          padding-left: 20px;
+          padding-right: 20px;
+          padding-top: 10px;
+          padding-bottom: 10px;
 
-      h1 {
-        font-size: $fs-medium;
-      }
+          h1 {
+            font-size: $fs-medium;
+          }
 
-      .jobCardButtonContainer {
-        button {
-          width: 40px;
-          height: 30px;
+          .jobCardButtonContainer {
+            button {
+              width: 40px;
+              height: 30px;
+            }
+          }
+          align-self: center;
         }
       }
-    }
-
-    @media (max-width: calc($breakpoint-web + 5 * 20px)) {
-      right: 40px;
     }
   }
 }
