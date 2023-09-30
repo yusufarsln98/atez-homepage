@@ -7,3 +7,99 @@
   width: 100%;
   background: var(--background-color);
 }
+
+.openPositions {
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: $header-height;
+
+  .openPositionsContainer {
+    display: flex;
+    flex-direction: row;
+    width: $context-width;
+    // padding left and right
+    padding: 0 20px;
+    padding-top: 60px;
+
+    .leftContainer {
+      display: flex;
+      flex-direction: column;
+      h1 {
+        white-space: nowrap;
+        font-family: $font-secondary;
+        font-size: $fs-big;
+        font-weight: $fw-medium;
+        margin-bottom: 60px;
+        color: var(--text-blue);
+      }
+
+      .positions {
+        width: calc(100% + 40px);
+        margin-left: -20px;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+
+        .position {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          // border offset
+          padding: 10px 2px;
+          margin-bottom: 2px;
+          gap: 20px;
+          background: none;
+          border: 1px solid transparent;
+          border-radius: $border-radius-large;
+
+          .positionTitle {
+            font-family: $font-secondary;
+            font-size: $fs-small;
+            font-weight: $fw-medium;
+            color: var(--text-blue);
+            margin-left: 20px;
+          }
+          cursor: pointer;
+          &:hover {
+            transition: 0.3s;
+            box-shadow: 0px 0px 8px 0px rgba(38, 153, 251, 0.52);
+            border: 1px solid var(--blue);
+          }
+
+          //   on hover increase the shadow
+          &:not(:hover) {
+            transition: 0.3s;
+          }
+          .newContainer {
+            // new tag
+            background: var(--text-blue);
+            padding: 4px 8px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border-radius: $border-radius-medium;
+
+            span {
+              font-family: $font-secondary;
+              font-size: $fs-tiny;
+              color: var(--background-color);
+            }
+          }
+        }
+        .positionSelected {
+          border: 1px solid var(--blue);
+        }
+      }
+
+      .positionNavigation {
+        background-color: red;
+      }
+    }
+  }
+}

@@ -1,8 +1,10 @@
 import Image from "next/image";
 import styles from "./Home.module.scss";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import { useText } from "@/context/text/Text.context";
 
 const Home = () => {
+  const { selectedPosition } = useText();
   return (
     <div id="home" className={styles.home}>
       <div className={styles.homeContainer}>
@@ -22,17 +24,16 @@ const Home = () => {
             global ölçekli çözümler üretme hedefi ile çalışmalarını
             sürdürmektedir.
           </p>
-          <button>KEŞFET</button>
+          <AnchorLink href="#biz-kimiz">
+            <button>KEŞFET</button>
+          </AnchorLink>
         </div>
-        <div className={styles.jobCard}>
-          <h1>2023 Yaz Stajı</h1>
-          <p>
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt
-          </p>
-          <div className={styles.jobCardButtonContainer}>
-            <>BAŞVURMAK İÇİN TIKLA</>
-            <AnchorLink href="#acik-pozisyonlar">
+        <AnchorLink href="#acik-pozisyonlar">
+          <div className={styles.jobCard}>
+            <h1>{selectedPosition.position}</h1>
+            <p>{selectedPosition.title}</p>
+            <div className={styles.jobCardButtonContainer}>
+              <>BAŞVURMAK İÇİN TIKLA</>
               <button>
                 <Image
                   src="/icons/RightWhite.svg"
@@ -41,9 +42,9 @@ const Home = () => {
                   height={20}
                 />
               </button>
-            </AnchorLink>
+            </div>
           </div>
-        </div>
+        </AnchorLink>
         <div className={styles.homeImage}>
           <Image
             src="/dummies/Home.png"
