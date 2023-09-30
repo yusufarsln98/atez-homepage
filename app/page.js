@@ -8,6 +8,7 @@ import Header from "@/components/header/Header";
 import Home from "@/components/home/Home";
 import WhoWeAre from "@/components/who-we-are/WhoWeAre";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function Page() {
   const { theme } = useTheme();
@@ -123,8 +124,10 @@ export default function Page() {
               ))}
             </h2>
             <p>{selectedPosition.description}</p>
-            <div>
-              <button className={styles.applyButton}>Başvur</button>
+            <div className={styles.applyContainer}>
+              <Link href="/basvuru">
+                <button className={styles.applyButton}>Başvur</button>
+              </Link>
             </div>
           </div>
         </div>

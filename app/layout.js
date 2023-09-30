@@ -1,6 +1,5 @@
 // use client
 import "@/styles/globals.scss";
-import { space_grotesk } from "@/public/fonts/fonts.config";
 import { ThemeProvider } from "@/context/theme/Theme.context";
 import { TextProvider } from "@/context/text/Text.context";
 
@@ -14,7 +13,7 @@ export default function RootLayout({ children }) {
     <ThemeProvider>
       <TextProvider>
         <html lang="tr">
-          <body className={`${space_grotesk.className}`}>{children}</body>
+          <body>{children}</body>
         </html>
       </TextProvider>
     </ThemeProvider>

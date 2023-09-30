@@ -1,5 +1,7 @@
 @use "styles/_macros" as *;
 @use "sass:color";
+@import url(https://fonts.googleapis.com/css?family=Space+Grotesk:300,400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
 * {
   // remove default margin and padding
   margin: 0;
@@ -9,6 +11,7 @@
   // Hide scroll bar
   -ms-overflow-style: none; // IE and Edge
   scrollbar-width: none; // Firefox
+  font-family: "Space Grotesk", sans-serif;
 }
 
 // Hide scrollbar for Chrome, Safari and Opera

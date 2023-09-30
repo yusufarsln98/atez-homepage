@@ -17,6 +17,21 @@
   align-items: center;
   padding-top: $header-height;
 
+  background-image: url("/dummies/Launch2x.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 300px;
+  background-position-y: 100%;
+  background-position-x: 30%;
+
+  // on web breakpoint
+  @media (max-width: calc($breakpoint-web + 40px)) {
+    background-position-x: 50%;
+    padding-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .openPositionsContainer {
     display: flex;
     flex-direction: row;
@@ -25,9 +40,27 @@
     padding: 0 20px;
     padding-top: 60px;
 
+    // on web breakpoint
+    @media (max-width: calc($breakpoint-web + 40px)) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    // on web breakpoint
+    @media (max-width: calc($breakpoint-web + 40px)) {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .leftContainer {
       display: flex;
       flex-direction: column;
+
+      @media (max-width: calc($breakpoint-web + 40px)) {
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
       h1 {
         white-space: nowrap;
         font-family: $font-secondary;
@@ -35,6 +68,12 @@
         font-weight: $fw-medium;
         margin-bottom: 60px;
         color: var(--text-blue);
+
+        // on web breakpoint
+        @media (max-width: $breakpoint-web) {
+          font-size: $fs-big-medium;
+          margin-bottom: 20px;
+        }
       }
 
       .positions {
@@ -104,6 +143,9 @@
         width: 100%;
         justify-content: space-between;
         margin-top: 80px;
+        @media (max-width: calc($breakpoint-web + 40px)) {
+          margin-top: 20px;
+        }
 
         .positionNavigationButton {
           display: flex;
@@ -129,6 +171,10 @@
           align-items: center;
           gap: 8px;
 
+          @media (max-width: calc($breakpoint-web + 40px)) {
+            gap: 4px;
+          }
+
           .positionIndex {
             font-family: $font-secondary;
             font-size: $fs-tiny;
@@ -140,6 +186,11 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
+
+            @media (max-width: calc($breakpoint-web + 40px)) {
+              width: 30px;
+              height: 30px;
+            }
 
             &:hover {
               font-size: $fs-small;
@@ -161,7 +212,24 @@
       background: var(--white);
       margin-left: 120px;
       padding: 40px;
+      border-radius: $border-radius-medium;
 
+      // on web breakpoint
+      @media (max-width: calc($breakpoint-web + 40px)) {
+        width: calc(100vw - 40px);
+        padding: 20px;
+        margin-left: 0;
+      }
+
+      // on hover, increase the shadow
+      &:hover {
+        transition: 0.3s;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      &:not(:hover) {
+        transition: 0.3s;
+      }
       .online {
         width: fit-content;
         background: var(--blue);
@@ -176,11 +244,56 @@
       }
 
       h1 {
-        font-family: $font-secondary;
-        font-size: $fs-big;
+        font-size: $fs-big-medium;
         font-weight: $fw-medium;
         color: var(--text-blue);
         margin-bottom: 20px;
+        font-family: $font-secondary;
+      }
+
+      h2 {
+        font-size: $fs-medium;
+        font-weight: $fw-medium;
+        color: var(--text-blue);
+        margin-bottom: 20px;
+        font-family: $font-secondary;
+      }
+
+      p {
+        font-size: $fs-small;
+        font-weight: $fw-regular;
+        color: var(--text-blue);
+        margin-bottom: 20px;
+      }
+
+      .applyContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
+        .applyButton {
+          background: none;
+          color: var(--text-blue);
+          font-family: $font-secondary;
+          font-size: $fs-small;
+          font-weight: $fw-medium;
+          padding: 8px 16px;
+          border-radius: $border-radius-medium;
+          user-select: none;
+          cursor: pointer;
+          border: 1px solid var(--text-blue);
+          // hover animation
+          &:hover {
+            transition: 0.3s;
+            background: var(--text-blue);
+            color: var(--white);
+          }
+          &:not(:hover) {
+            transition: 0.3s;
+          }
+        }
       }
     }
   }
