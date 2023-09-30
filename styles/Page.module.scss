@@ -98,7 +98,89 @@
       }
 
       .positionNavigation {
-        background-color: red;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 80px;
+
+        .positionNavigationButton {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          background: none;
+          border: none;
+          cursor: pointer;
+
+          // hover animation
+          &:hover {
+            transition: 0.3s;
+            transform: scale(1.1);
+          }
+
+          &:not(:hover) {
+            transition: 0.3s;
+          }
+        }
+        .positionIndexContainer {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 8px;
+
+          .positionIndex {
+            font-family: $font-secondary;
+            font-size: $fs-tiny;
+            font-weight: $fw-medium;
+            color: var(--text-blue-light);
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+
+            &:hover {
+              font-size: $fs-small;
+              font-weight: $fw-bold;
+            }
+          }
+
+          .positionIndexSelected {
+            color: var(--text-white);
+            background: var(--blue);
+          }
+        }
+      }
+    }
+
+    .rightContainer {
+      // inclue panel mixin
+      @include panel;
+      background: var(--white);
+      margin-left: 120px;
+      padding: 40px;
+
+      .online {
+        width: fit-content;
+        background: var(--blue);
+        color: var(--white);
+        font-family: $font-secondary;
+        font-size: $fs-tiny;
+        font-weight: $fw-medium;
+        padding: 4px 12px;
+        border-radius: $border-radius-medium;
+        user-select: none;
+        margin-bottom: 20px;
+      }
+
+      h1 {
+        font-family: $font-secondary;
+        font-size: $fs-big;
+        font-weight: $fw-medium;
+        color: var(--text-blue);
+        margin-bottom: 20px;
       }
     }
   }

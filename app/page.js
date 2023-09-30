@@ -56,6 +56,7 @@ export default function Page() {
             </div>
             <div className={styles.positionNavigation}>
               <button
+                className={styles.positionNavigationButton}
                 onClick={() =>
                   setPositionIndex(
                     positionIndex === 0
@@ -74,25 +75,28 @@ export default function Page() {
                   }}
                 />
               </button>
-              {
-                // buttons from 1 to positions.length
-                Array.from({ length: positions.length }, (_, i) => i + 1).map(
-                  (number) => (
-                    <button
-                      key={number}
-                      className={`${styles.positionNumber}
+              <div className={styles.positionIndexContainer}>
+                {
+                  // buttons from 1 to positions.length
+                  Array.from({ length: positions.length }, (_, i) => i + 1).map(
+                    (number) => (
+                      <button
+                        key={number}
+                        className={`${styles.positionIndex}
                       ${
                         selectedPosition.id === number &&
-                        styles.positionNumberSelected
+                        styles.positionIndexSelected
                       }`}
-                      onClick={() => setPositionIndex(number - 1)}
-                    >
-                      {number}
-                    </button>
+                        onClick={() => setPositionIndex(number - 1)}
+                      >
+                        {number}
+                      </button>
+                    )
                   )
-                )
-              }
+                }
+              </div>
               <button
+                className={styles.positionNavigationButton}
                 onClick={() =>
                   setPositionIndex(
                     positionIndex === positions.length - 1
@@ -110,9 +114,18 @@ export default function Page() {
               </button>
             </div>
           </div>
-          <div className={styles.description}>
-            lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            vestibulum, nunc ut consectetur aliquam, nisi massa luctus tellus,
+          <div className={styles.rightContainer}>
+            <div className={styles.online}>YAYINDA</div>
+            <h1>{selectedPosition.position}</h1>
+            <h2>
+              {selectedPosition.title.split("\n").map((title) => (
+                <div key={title}>{title}</div>
+              ))}
+            </h2>
+            <p>{selectedPosition.description}</p>
+            <div>
+              <button className={styles.applyButton}>Başvur</button>
+            </div>
           </div>
         </div>
       </div>
