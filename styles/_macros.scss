@@ -37,7 +37,3 @@ $card-width: 542px;
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
 }
-
-@mixin bug-border {
-  border: 2px solid red;
-}

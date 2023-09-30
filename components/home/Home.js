@@ -29,14 +29,21 @@ const Home = () => {
               <button className={styles.whoWeAreButton}>KEŞFET</button>
             </AnchorLink>
           </div>
-          <AnchorLink href="#acik-pozisyonlar">
-            <div className={styles.jobCardContainer}>
-              <div className={styles.jobCard}>
-                <h1>{selectedPosition.position}</h1>
-                <p>{selectedPosition.title}</p>
-                <div className={styles.jobCardButtonContainer}>
-                  <>BAŞVURMAK İÇİN TIKLA</>
-                  <button>
+          <div className={styles.jobCardContainer}>
+            <div className={styles.jobCard}>
+              <h1>{selectedPosition.position}</h1>
+              <p>{selectedPosition.title}</p>
+              <div className={styles.jobCardButtonContainer}>
+                <label
+                  htmlFor="jobCardButton"
+                  style={{
+                    cursor: "pointer",
+                  }}
+                >
+                  BAŞVURMAK İÇİN TIKLA
+                </label>
+                <AnchorLink href="#acik-pozisyonlar">
+                  <button id="jobCardButton">
                     <Image
                       src="/icons/RightWhite.svg"
                       alt="arrow-right"
@@ -44,10 +51,10 @@ const Home = () => {
                       height={20}
                     />
                   </button>
-                </div>
+                </AnchorLink>
               </div>
             </div>
-          </AnchorLink>
+          </div>
         </div>
       </div>
     </div>
