@@ -9,15 +9,12 @@ import Home from "@/components/home/Home";
 import WhoWeAre from "@/components/who-we-are/WhoWeAre";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import OpenPositions from "@/components/open-positions/OpenPositions";
+import AnchorLink from "react-anchor-link-smooth-scroll";
+import NewsLetter from "@/components/newsletter/NewsLetter";
 
 export default function Page() {
   const { theme } = useTheme();
-  const { positions, selectedPosition, setSelectedPosition } = useText();
-  const [positionIndex, setPositionIndex] = useState(0);
-
-  useEffect(() => {
-    setSelectedPosition(positions[positionIndex]);
-  }, [positionIndex, positions, setSelectedPosition]);
 
   return (
     <main
@@ -29,110 +26,55 @@ export default function Page() {
       <Header />
       <Home />
       <WhoWeAre />
-
-      <div id="acik-pozisyonlar" className={styles.openPositions}>
-        <div className={styles.openPositionsContainer}>
-          <div className={styles.leftContainer}>
-            <h1>Açık Pozisyonlar</h1>
-            <div className={styles.positions}>
-              {/* positions */}
-              {positions.map((position) => (
-                <button
-                  key={position.id}
-                  className={`${styles.position}
-                  ${selectedPosition === position && styles.positionSelected}`}
-                  onClick={() => setSelectedPosition(position)}
-                >
-                  <div className={styles.positionTitle}>
-                    {position.position}
-                  </div>
-                  {/* if new create span */}
-                  {position.isNew && (
-                    <div className={styles.newContainer}>
-                      <span className={styles.positionNew}>Yeni</span>
-                    </div>
-                  )}
-                </button>
-              ))}
-            </div>
-            <div className={styles.positionNavigation}>
-              <button
-                className={styles.positionNavigationButton}
-                onClick={() =>
-                  setPositionIndex(
-                    positionIndex === 0
-                      ? positions.length - 1
-                      : positionIndex - 1
-                  )
-                }
-              >
-                <Image
-                  src="/icons/Right.svg"
-                  alt="left"
-                  width={16}
-                  height={16}
-                  style={{
-                    transform: "rotate(180deg)",
-                  }}
-                />
-              </button>
-              <div className={styles.positionIndexContainer}>
-                {
-                  // buttons from 1 to positions.length
-                  Array.from({ length: positions.length }, (_, i) => i + 1).map(
-                    (number) => (
-                      <button
-                        key={number}
-                        className={`${styles.positionIndex}
-                      ${
-                        selectedPosition.id === number &&
-                        styles.positionIndexSelected
-                      }`}
-                        onClick={() => setPositionIndex(number - 1)}
-                      >
-                        {number}
-                      </button>
-                    )
-                  )
-                }
+      <OpenPositions />
+      <NewsLetter />
+      <div className={styles.footer}>
+        <div className={styles.footerContext}>
+          <div className={styles.footerContainer}>
+            <Image
+              src="/logos/Logo-EN-WHITE@2x.png"
+              alt="Logo"
+              width={234}
+              height={63}
+            />
+            <p>© Atez Yazılım Teknolojileri 2023</p>
+          </div>
+          <div className={styles.footerContainer}>
+            <div className={styles.addressContainer}>
+              <div className={styles.addressTitle}>Güneşli Address</div>
+              <div>
+                15 Temmuz Mah. Gülbahar Cd. No:20 <br />
+                34212 Güne#li istanbul <br />
+                Phone: +90 850 393 41 41 <br />
+                Email: info@atez.com.tr <br />
               </div>
-              <button
-                className={styles.positionNavigationButton}
-                onClick={() =>
-                  setPositionIndex(
-                    positionIndex === positions.length - 1
-                      ? 0
-                      : positionIndex + 1
-                  )
-                }
-              >
-                <Image
-                  src="/icons/Right.svg"
-                  alt="right"
-                  width={16}
-                  height={16}
-                />
-              </button>
+            </div>
+            <div className={styles.addressContainer}>
+              <div className={styles.addressTitle}>Emaar Office</div>
+              <div>
+                15 Temmuz Mah. Gülbahar Cd. No:20 <br />
+                34212 Güne#li istanbul <br />
+                Phone: +90 850 393 41 41 <br />
+                Email: info@atez.com.tr <br />
+              </div>
             </div>
           </div>
-          <div className={styles.rightContainer}>
-            <div className={styles.online}>YAYINDA</div>
-            <h1>{selectedPosition.position}</h1>
-            <h2>
-              {selectedPosition.title.split("\n").map((title) => (
-                <div key={title}>{title}</div>
-              ))}
-            </h2>
-            <p>{selectedPosition.description}</p>
-            <div className={styles.applyContainer}>
-              <Link href="/basvuru">
-                <button className={styles.applyButton}>Başvur</button>
-              </Link>
-            </div>
+          <div className={styles.footerContainer}>
+            <Link
+              // open external link in new tab
+              href="https://www.linkedin.com/company/atez-yaz%C4%B1l%C4%B1m-teknolojileri-a-s/"
+              target="_blank"
+            >
+              <Image
+                src="/social-media/Linkedin.svg"
+                alt="linkedin"
+                width={92}
+                height={26}
+              />
+            </Link>
           </div>
         </div>
       </div>
-      <div></div>
     </main>
   );
 }

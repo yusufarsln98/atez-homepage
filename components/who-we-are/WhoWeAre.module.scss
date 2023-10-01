@@ -29,7 +29,7 @@
     }
 
     @media (max-width: $breakpoint-mobile) {
-      margin-top: 40px;
+      margin-top: 60px;
     }
 
     .title {
@@ -150,7 +150,7 @@
         align-items: center;
         justify-content: center;
         background: transparent;
-        border: 2px solid var(--text-blue);
+        border: 2px solid var(--blue);
         // border radius
         border-radius: $border-radius-medium;
         width: 60px;
@@ -162,7 +162,7 @@
         &:hover {
           // with some delay
           transition: 0.3s;
-          background: var(--text-blue);
+          background: var(--blue);
           img {
             filter: brightness(0) invert(1);
           }

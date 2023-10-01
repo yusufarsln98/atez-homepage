@@ -1,0 +1,202 @@
+@use "styles/_macros.scss" as *;
+
+.newsLetter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 160px;
+
+  @media (max-width: $breakpoint-web) {
+    margin-top: 80px;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    margin-top: 40px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+
+    @media (max-width: $breakpoint-web) {
+      flex-direction: column;
+      gap: 40px;
+
+      img {
+        width: 120px;
+      }
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      gap: 20px;
+      img {
+        width: 80px;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      @media (max-width: $breakpoint-web) {
+        gap: 20px;
+      }
+      .textContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h1 {
+          color: var(--text-blue);
+          font-size: $fs-big;
+          font-weight: $fw-medium;
+        }
+
+        p {
+          color: var(--text-blue-light);
+          font-size: $fs-small;
+          font-weight: $fw-regular;
+          font-family: $font-secondary;
+        }
+
+        @media (max-width: $breakpoint-web) {
+          justify-content: center;
+          align-items: center;
+          h1 {
+            font-size: $fs-big-medium;
+          }
+          p {
+            font-size: $fs-tiny;
+          }
+        }
+      }
+      .inputContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .input {
+          height: 48px;
+          width: 480px;
+          border-radius: $border-radius-large;
+          border: none;
+          // padding
+          padding-left: 20px;
+          padding-right: 84px;
+          // shadow
+          box-shadow: 0px 3px 16px #0000000a;
+
+          color: var(--text-blue);
+          &::placeholder {
+            color: var(--text-blue-light);
+          }
+
+          &:focus {
+            outline: none;
+            transition: 0.3s;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+          }
+          &:not(:focus) {
+            transition: 0.3s;
+          }
+        }
+
+        .inputInvalid {
+          // a red shadow
+          box-shadow: 0px 0px 10px 0px rgba(255, 0, 0, 0.2);
+        }
+
+        button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: -72px;
+          height: 36px;
+          width: 60px;
+          border-radius: $border-radius-large;
+          // 1px blue border
+          border: 1px solid var(--blue);
+          background: none;
+          cursor: pointer;
+
+          // on hover
+          &:hover {
+            transition: 0.3s;
+            background: var(--blue);
+            color: var(--white);
+            img {
+              filter: brightness(0) invert(1);
+            }
+          }
+
+          &:not(:hover) {
+            transition: 0.3s;
+          }
+        }
+
+        @media (max-width: $breakpoint-web) {
+          justify-content: center;
+          align-items: center;
+          .input {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .upButtonContainer {
+    width: $context-width;
+    margin-top: 200px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    button {
+      height: 80px;
+      width: 80px;
+      background: transparent;
+      // border
+      border: 3px solid var(--blue-light);
+      cursor: pointer;
+
+      // on hover
+      &:hover {
+        transition: 0.3s;
+        background: var(--blue);
+        border: 3px solid var(--blue);
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
+
+      &:not(:hover) {
+        transition: 0.3s;
+      }
+
+      @media (max-width: $breakpoint-web) {
+        height: 60px;
+        width: 60px;
+      }
+
+      @media (max-width: $breakpoint-mobile) {
+        height: 40px;
+        width: 40px;
+
+        img {
+          width: 20px;
+        }
+      }
+    }
+
+    @media (max-width: $breakpoint-web) {
+      justify-content: center;
+      margin-top: 100px;
+      margin-bottom: 40px;
+    }
+  }
+}

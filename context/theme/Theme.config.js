@@ -11,7 +11,7 @@ export const THEME = {
     "--card-bg": "rgb(0,147,255);",
     "--card-gradient": "linear-gradient(90deg, #0093FF 0%, #963DC1 100%);",
     "--footer-bg": "rgb(169,24,116);",
-    "footer-gradient":
+    "--footer-gradient":
       "linear-gradient(0deg, rgba(169,24,116,1) 0%, rgba(85,12,58,1) 100%);",
 
     "--text-white": "#FFFFFF",
