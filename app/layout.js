@@ -1,21 +1,32 @@
-// use client
+"use client";
+
 import "@/styles/globals.scss";
-import { ThemeProvider } from "@/context/theme/Theme.context";
+import { ThemeProvider, useTheme } from "@/context/theme/Theme.context";
 import { TextProvider } from "@/context/text/Text.context";
 
-export const metadata = {
-  title: "Atez Yazılım Teknolojileri",
-  description: "Atez Yazılım Teknolojileri",
-};
-
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children, // will be a page or nested layout
+}) {
   return (
     <ThemeProvider>
       <TextProvider>
         <html lang="tr">
-          <body>{children}</body>
+          <EnhancedBody>{children}</EnhancedBody>
         </html>
       </TextProvider>
     </ThemeProvider>
   );
 }
+
+const EnhancedBody = ({ children }) => {
+  const { theme } = useTheme();
+  return (
+    <body
+      style={{
+        ...theme,
+      }}
+    >
+      {children}
+    </body>
+  );
+};

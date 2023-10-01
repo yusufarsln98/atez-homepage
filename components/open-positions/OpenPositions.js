@@ -101,7 +101,7 @@ const OpenPositions = () => {
           </h2>
           <p>{selectedPosition.description}</p>
           <div className={styles.applyContainer}>
-            <Link href="/basvuru">
+            <Link href="/is-basvurusu">
               <button className={styles.applyButton}>Başvur</button>
             </Link>
           </div>

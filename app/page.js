@@ -15,15 +15,8 @@ import NewsLetter from "@/components/newsletter/NewsLetter";
 import Footer from "@/components/footer/Footer";
 
 export default function Page() {
-  const { theme } = useTheme();
-
   return (
-    <main
-      className={styles.main}
-      style={{
-        ...theme,
-      }}
-    >
+    <main className={styles.main}>
       <Header />
       <Home />
       <WhoWeAre />

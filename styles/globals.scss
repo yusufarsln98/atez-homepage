@@ -29,9 +29,8 @@ input,
 textarea,
 select {
   font-size: 16px;
-  // space between letters and lines
   letter-spacing: 1px;
-  // set font open sans
+  background: var(--background-color);
 }
 
 #__next {

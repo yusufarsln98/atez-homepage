@@ -1,3 +1,4 @@
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import styles from "./WhoWeAre.module.scss";
 import Image from "next/image";
 // images
@@ -65,14 +66,16 @@ const WhoWeAre = () => {
       <div className={styles.whoWeAreApplicationsContainer}>
         <div className={styles.whoWeAreApplications}>
           <p>BAŞVURULAR</p>
-          <button>
-            <Image
-              src={"/icons/Right.svg"}
-              alt="right"
-              width={20}
-              height={20}
-            />
-          </button>
+          <AnchorLink href="#acik-pozisyonlar">
+            <button>
+              <Image
+                src={"/icons/Right.svg"}
+                alt="right"
+                width={20}
+                height={20}
+              />
+            </button>
+          </AnchorLink>
         </div>
       </div>
     </div>
