@@ -6,11 +6,7 @@ import Link from "next/link";
 
 const OpenPositions = () => {
   const { positions, selectedPosition, setSelectedPosition } = useText();
-  const [positionIndex, setPositionIndex] = useState(0);
 
-  useEffect(() => {
-    setSelectedPosition(positions[positionIndex]);
-  }, [positionIndex, positions, setSelectedPosition]);
   return (
     <div id="acik-pozisyonlar" className={styles.openPositions}>
       <div className={styles.openPositionsContainer}>
@@ -20,10 +16,12 @@ const OpenPositions = () => {
             {/* positions */}
             {positions.map((position) => (
               <button
-                key={position.id}
-                className={`${styles.position}
-                  ${selectedPosition === position && styles.positionSelected}`}
-                onClick={() => setSelectedPosition(position)}
+                key={position.index}
+                className={`${styles.position} 
+                ${selectedPosition === position && styles.positionSelected}`}
+                onClick={() => {
+                  setSelectedPosition(position);
+                }}
               >
                 <div className={styles.positionTitle}>{position.position}</div>
                 {/* if new create span */}
@@ -36,13 +34,17 @@ const OpenPositions = () => {
             ))}
           </div>
           <div className={styles.positionNavigation}>
+            {/* left button */}
             <button
               className={styles.positionNavigationButton}
-              onClick={() =>
-                setPositionIndex(
-                  positionIndex === 0 ? positions.length - 1 : positionIndex - 1
-                )
-              }
+              onClick={() => {
+                setSelectedPosition(
+                  positions[
+                    (selectedPosition.index + positions.length - 2) %
+                      positions.length
+                  ]
+                );
+              }}
             >
               <Image
                 src="/icons/Right.svg"
@@ -57,30 +59,30 @@ const OpenPositions = () => {
             <div className={styles.positionIndexContainer}>
               {
                 // buttons from 1 to positions.length
-                Array.from({ length: positions.length }, (_, i) => i + 1).map(
-                  (number) => (
-                    <button
-                      key={number}
-                      className={`${styles.positionIndex}
-                      ${
-                        selectedPosition.id === number &&
-                        styles.positionIndexSelected
-                      }`}
-                      onClick={() => setPositionIndex(number - 1)}
-                    >
-                      {number}
-                    </button>
-                  )
-                )
+                positions.map((position) => (
+                  <button
+                    key={position.index}
+                    className={`${styles.positionIndex}
+                    ${
+                      position === selectedPosition &&
+                      styles.positionIndexSelected
+                    }`}
+                    onClick={() => {
+                      setSelectedPosition(position);
+                    }}
+                  >
+                    {position.index}
+                  </button>
+                ))
               }
             </div>
             <button
               className={styles.positionNavigationButton}
-              onClick={() =>
-                setPositionIndex(
-                  positionIndex === positions.length - 1 ? 0 : positionIndex + 1
-                )
-              }
+              onClick={() => {
+                setSelectedPosition(
+                  positions[selectedPosition.index % positions.length]
+                );
+              }}
             >
               <Image
                 src="/icons/Right.svg"

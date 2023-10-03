@@ -2,7 +2,7 @@
 export const TEXT = {
   positions: [
     {
-      id: 1,
+      index: 1,
       position: "Back-End Developer",
       isNew: false,
       title:
@@ -11,7 +11,7 @@ export const TEXT = {
         "ATEZ 2017 Yılında Türkiye'deki en büyük gümrük müşavirliği firmalanndan biri olan Güler & Dinamik Gümrük Müşavirliği firmasndan, uluslararası ticaret ile ilgili alanlarda faaliyet gösteren tüm Özel sektör ile kamu kurum ve kuruluşlarının çalışmalarının dijitalleştirilebilmesi için gerekli yazılımların geliştirilmesi, mevcut yazılımların bakım ve destek faaliyetlerinin sürdürülmesi amacı ile kurulmuştur.",
     },
     {
-      id: 2,
+      index: 2,
       position: "Front-End Developer",
       isNew: false,
       title:
@@ -20,7 +20,7 @@ export const TEXT = {
         "ATEZ 2017 Yılında Türkiye'deki en büyük gümrük müşavirliği firmalanndan biri olan Güler & Dinamik Gümrük Müşavirliği firmasndan, uluslararası ticaret ile ilgili alanlarda faaliyet gösteren tüm Özel sektör ile kamu kurum ve kuruluşlarının çalışmalarının dijitalleştirilebilmesi için gerekli yazılımların geliştirilmesi, mevcut yazılımların bakım ve destek faaliyetlerinin sürdürülmesi amacı ile kurulmuştur.",
     },
     {
-      id: 3,
+      index: 3,
       position: "2023 Yaz Stajı",
       isNew: true,
       title:
@@ -29,7 +29,7 @@ export const TEXT = {
         "ATEZ 2017 Yılında Türkiye'deki en büyük gümrük müşavirliği firmalanndan biri olan Güler & Dinamik Gümrük Müşavirliği firmasndan, uluslararası ticaret ile ilgili alanlarda faaliyet gösteren tüm Özel sektör ile kamu kurum ve kuruluşlarının çalışmalarının dijitalleştirilebilmesi için gerekli yazılımların geliştirilmesi, mevcut yazılımların bakım ve destek faaliyetlerinin sürdürülmesi amacı ile kurulmuştur.",
     },
     {
-      id: 4,
+      index: 4,
       position: "DevOps",
       isNew: false,
       title:
@@ -38,7 +38,7 @@ export const TEXT = {
         "ATEZ 2017 Yılında Türkiye'deki en büyük gümrük müşavirliği firmalanndan biri olan Güler & Dinamik Gümrük Müşavirliği firmasndan, uluslararası ticaret ile ilgili alanlarda faaliyet gösteren tüm Özel sektör ile kamu kurum ve kuruluşlarının çalışmalarının dijitalleştirilebilmesi için gerekli yazılımların geliştirilmesi, mevcut yazılımların bakım ve destek faaliyetlerinin sürdürülmesi amacı ile kurulmuştur.",
     },
     {
-      id: 5,
+      index: 5,
       position: "Business Analyst",
       isNew: false,
       title:
