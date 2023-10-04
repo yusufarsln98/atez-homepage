@@ -103,7 +103,14 @@ const OpenPositions = () => {
           </h2>
           <p>{selectedPosition.description}</p>
           <div className={styles.applyContainer}>
-            <Link href="/is-basvurusu">
+            <Link
+              // href="/is-basvurusu"
+              // send position with link
+              href={{
+                pathname: "is-basvurusu",
+                query: { position: `${selectedPosition.position}` },
+              }}
+            >
               <button className={styles.applyButton}>Başvur</button>
             </Link>
           </div>

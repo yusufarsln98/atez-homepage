@@ -1,10 +1,171 @@
 @use "styles/_macros.scss" as *;
 
-.container {
+.page {
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  padding-top: $header-height;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .window {
+    width: 100%;
+    height: calc(100vh - #{$header-height});
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .windowContent {
+      width: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 160px;
+
+      .backContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+        margin-bottom: 40px;
+
+        button {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          background: none;
+          width: 68px;
+          height: 40px;
+          border-radius: 20px;
+          border: 1px solid var(--blue);
+          cursor: pointer;
+
+          &:hover {
+            transition: 0.3s;
+            background: var(--blue);
+            color: var(--white);
+
+            // image color change
+            img {
+              filter: brightness(0) invert(1);
+            }
+          }
+
+          &:not(:hover) {
+            transition: 0.3s;
+          }
+        }
+        h2 {
+          font-family: $font-secondary;
+          font-weight: $fw-bold;
+          font-size: $fs-medium;
+          color: var(--blue);
+        }
+      }
+
+      .formContaier {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        p {
+          font-family: $font-secondary;
+          font-weight: $fw-regular;
+          font-size: $fs-small;
+          color: var(--blue);
+        }
+      }
+    }
+  }
+}
+
+.inputContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-family: $font-secondary;
+    font-weight: $fw-bold;
+    font-size: $fs-medium;
+    color: var(--text-blue);
+  }
+
+  .inputForm {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 36px;
+
+    input {
+      width: 100%;
+      height: 56px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      // padding left and right
+      padding: 8px 16px;
+      // text
+      font-family: $font-secondary;
+      font-weight: $fw-medium;
+      font-size: $fs-small;
+      color: var(--text-blue);
+
+      border: none;
+      border-radius: $border-radius-large;
+      // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      @include panel;
+      &:focus {
+        outline: none;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      // hide arrows
+      -moz-appearance: textfield;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      // placeholder
+      &::placeholder {
+        font-family: $font-secondary;
+        font-weight: $fw-regular;
+        font-size: $fs-small;
+        color: var(--text-blue-light);
+      }
+    }
+
+    button {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: none;
+      font-family: $font-secondary;
+      font-weight: $fw-bold;
+      font-size: $fs-medium;
+      color: var(--text-blue);
+      cursor: pointer;
+
+      &:hover {
+        transition: 0.3s;
+        color: var(--text-blue-light);
+      }
+
+      &:not(:hover) {
+        transition: 0.3s;
+      }
+    }
+  }
 }

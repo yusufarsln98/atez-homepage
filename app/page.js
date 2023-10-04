@@ -17,7 +17,7 @@ import Footer from "@/components/footer/Footer";
 export default function Page() {
   return (
     <main className={styles.main}>
-      <Header />
+      <Header scroll={true} />
       <Home />
       <WhoWeAre />
       <OpenPositions />
