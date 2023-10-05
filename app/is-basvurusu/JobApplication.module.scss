@@ -9,6 +9,61 @@
   justify-content: center;
   align-items: center;
 
+  .dummy {
+    position: fixed;
+    bottom: 0;
+    left: 416px;
+    z-index: 100;
+  }
+
+  .progress {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 100px;
+
+    height: 10px;
+    width: 444px;
+    z-index: 1000;
+    @media (max-width: calc(416px + 32px)) {
+      width: calc(100% - 32px);
+    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .progressCircle {
+      height: 28px;
+      width: 28px;
+      border-radius: 50%;
+      border: 4px solid var(--white);
+      z-index: 10;
+    }
+
+    .progressBar {
+      position: absolute;
+      left: 0;
+      width: calc(416px * var(--progress));
+      @media (max-width: calc(416px + 32px)) {
+        width: calc((100%) * var(--progress));
+      }
+      height: 10px;
+      z-index: 1;
+      border-top-left-radius: $border-radius-large;
+      border-bottom-left-radius: $border-radius-large;
+    }
+
+    .progressBarContainer {
+      position: fixed;
+      width: 416px;
+      height: 10px;
+      background: var(--white);
+      border-radius: $border-radius-large;
+      @media (max-width: calc(416px + 32px)) {
+        width: calc(100% - 32px);
+      }
+    }
+  }
+
   .window {
     width: 100%;
     height: calc(100vh - #{$header-height});
@@ -22,6 +77,11 @@
       flex-direction: column;
       align-items: center;
       margin-top: 160px;
+      // breakpoint
+      @media (max-width: calc(640px + 32px)) {
+        width: 100%;
+        padding: 0 16px;
+      }
 
       .backContainer {
         width: 100%;
@@ -80,6 +140,140 @@
           color: var(--blue);
         }
       }
+
+      .dropdown {
+        display: relative;
+        display: inline-block;
+        width: 100%;
+
+        .dropdownContent {
+          margin-top: 10px;
+          display: none;
+          // 108px: widht of enter Buttons
+          width: calc(100% - 108px);
+          @include panel;
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
+          border-radius: $border-radius-large;
+          .dropdownItem {
+            font-family: $font-secondary;
+            font-size: $fs-small;
+            font-weight: $fw-regular;
+            color: var(--text-blue);
+            padding: 16px 32px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-bottom: 1px solid var(--background-color);
+            border-top: 1px solid var(--background-color);
+            &:hover {
+              background: var(--blue-light);
+              // bottom border
+              border-bottom: 1px solid var(--blue);
+              border-top: 1px solid var(--blue);
+            }
+          }
+
+          .dropdownItem:last-child {
+            border-end-end-radius: $border-radius-large;
+            border-end-start-radius: $border-radius-large;
+          }
+
+          .dropdownItem:first-child {
+            border-start-end-radius: $border-radius-large;
+            border-start-start-radius: $border-radius-large;
+          }
+        }
+
+        .dropdownContentShow {
+          display: block;
+        }
+      }
+
+      .done {
+        width: 100px;
+        height: 100px;
+        background: var(--blue);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin-bottom: 40px;
+      }
+
+      .doneText {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        color: var(--text-blue);
+        margin-bottom: 60px;
+      }
+
+      .doneButton {
+        padding: 12px 24px;
+        border-radius: $border-radius-large;
+        border: 2px solid var(--blue);
+        color: var(--text-blue);
+        &:hover {
+          transition: 0.3s;
+          background: var(--blue);
+          color: var(--white);
+        }
+        &:not(hover) {
+          transition: 0.3s;
+        }
+      }
+    }
+
+    .text {
+      color: var(--text-blue);
+    }
+
+    .fileInput {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 16px;
+      margin-top: 16px;
+      label {
+        font-family: $font-secondary;
+        font-weight: $fw-bold;
+        font-size: $fs-medium;
+        color: var(--text-blue);
+      }
+
+      .fileInputField::-webkit-file-upload-button {
+        visibility: hidden;
+      }
+
+      .fileInputField::before {
+        content: "YÜKLE";
+        display: inline-block;
+        background: var(--white);
+        font-family: $font-secondary;
+        font-size: $fs-small;
+        color: var(--text-blue);
+        font-weight: $fw-medium;
+        border-radius: $border-radius-large;
+        padding: 12px 24px;
+        -webkit-user-select: none;
+        cursor: pointer;
+      }
+
+      .fileInputField:hover::before {
+        background: var(--blue);
+        color: var(--white);
+        transition: 0.3s;
+      }
+
+      .fileInputField:not(:hover)::before {
+        transition: 0.3s;
+      }
+
+      margin-bottom: 16px;
     }
   }
 }
@@ -95,6 +289,9 @@
     font-weight: $fw-bold;
     font-size: $fs-medium;
     color: var(--text-blue);
+    @media (max-width: calc($breakpoint-mobile)) {
+      font-size: $fs-small;
+    }
   }
 
   .inputForm {
@@ -103,6 +300,13 @@
     flex-direction: row;
     align-items: center;
     gap: 36px;
+    @media (max-width: calc($breakpoint-mobile)) {
+      gap: 16px;
+    }
+
+    a {
+      text-decoration: none;
+    }
 
     input {
       width: 100%;
@@ -122,7 +326,7 @@
       border: none;
       border-radius: $border-radius-large;
       // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-      @include panel;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
       &:focus {
         outline: none;
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
@@ -165,6 +369,10 @@
 
       &:not(:hover) {
         transition: 0.3s;
+      }
+
+      @media (max-width: calc($breakpoint-mobile)) {
+        font-size: $fs-small;
       }
     }
   }

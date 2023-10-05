@@ -4,7 +4,7 @@ import Link from "next/link";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { useRouter } from "next/navigation";
 
-const Header = ({ scroll }) => {
+const Header = ({ scroll, hideLinks }) => {
   return (
     <div className={styles.header}>
       <div className={styles.headerContainer}>
@@ -31,9 +31,13 @@ const Header = ({ scroll }) => {
           {/* <a href="#">YÖNETİCİ PANELİ</a>
           <a href="#">BİZ KİMİZ?</a>
           <a href="#">AÇIK POZİSYONLAR</a> */}
-          <Link href="/yonetici-paneli">YÖNETİCİ PANELİ</Link>
-          <AnchorLink href="#biz-kimiz">BİZ KİMİZ?</AnchorLink>
-          <AnchorLink href="#acik-pozisyonlar">AÇIK POZİSYONLAR</AnchorLink>
+          {!hideLinks && (
+            <>
+              <Link href="/yonetici-paneli">YÖNETİCİ PANELİ</Link>
+              <AnchorLink href="#biz-kimiz">BİZ KİMİZ?</AnchorLink>
+              <AnchorLink href="#acik-pozisyonlar">AÇIK POZİSYONLAR</AnchorLink>
+            </>
+          )}
         </div>
       </div>
     </div>

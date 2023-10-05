@@ -13,7 +13,7 @@ export const THEME = {
     "--footer-bg": "rgb(169,24,116);",
     "--footer-gradient":
       "linear-gradient(0deg, rgba(169,24,116,1) 0%, rgba(85,12,58,1) 100%);",
-
+    "--green": "#26fbb9",
     "--text-white": "#FFFFFF",
     "--text-blue": "#2699FB",
     "--text-blue-light": "#7FC4FD",
