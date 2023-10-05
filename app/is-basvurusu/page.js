@@ -152,7 +152,8 @@ export default function Page() {
           className={styles.progressCircle}
           style={{
             // left
-            marginLeft: `calc(${progress}% - 28px)`,
+            // marginLeft: `calc(${progress}% - 28px)`,
+            marginLeft: `${progress > 0 ? `calc(${progress}% - 27px)` : 0}`,
             backgroundColor: `${
               progress === 100 ? "var(--green)" : "var(--blue)"
             }`,
